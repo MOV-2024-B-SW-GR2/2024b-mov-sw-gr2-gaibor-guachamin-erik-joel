@@ -1,0 +1,2 @@
+1,Aventuriñas,Terror,200.0,2
+2,Juegos Serios,Comedia,10.0,3
