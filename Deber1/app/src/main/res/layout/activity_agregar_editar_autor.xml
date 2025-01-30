@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Campo Nombre -->
+    <TextView
+        android:id="@+id/ingreso_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INGRESO DE AUTORES"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nombre"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/nombre_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa el nombre"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Campo Dirección -->
+    <TextView
+        android:id="@+id/tvNacionalidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Nacionalidad"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/nacionalidad_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Ingresa la nacionalidad"
+        android:inputType="text" />
+
+    <!-- Campo Teléfono -->
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Fecha"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/fechaN_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="2020/10/01"
+        android:inputType="text" />
+
+    <!-- Checkbox Franquicia -->
+    <CheckBox
+        android:id="@+id/activo_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Activo" />
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textSize="18sp" />
+
+</LinearLayout>

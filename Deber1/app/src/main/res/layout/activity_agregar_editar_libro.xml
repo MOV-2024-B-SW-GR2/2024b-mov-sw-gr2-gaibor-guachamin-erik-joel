@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Campo Nombre -->
+    <TextView
+        android:id="@+id/ingreso_title_libro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INGRESO DE LIBROS"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Titulo"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/titulo_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Ingresa el titulo"
+        android:inputType="text" />
+
+    <!-- Campo Dirección -->
+    <TextView
+        android:id="@+id/tvgenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Género"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/genero_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="Ingresa la género"
+        android:inputType="text" />
+
+    <!-- Campo Teléfono -->
+    <TextView
+        android:id="@+id/tvPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Precio $"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/precio_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="$100"
+        android:inputType="phone" />
+
+    <!-- Checkbox Franquicia -->
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:textSize="18sp" />
+
+</LinearLayout>
