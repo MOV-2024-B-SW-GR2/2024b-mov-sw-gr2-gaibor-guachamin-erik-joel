@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/im_listar_libros"
+        android:title="Listar libros" />
+    <item
+        android:id="@+id/im_editar_autor"
+        android:title="Editar" />
+    <item
+        android:id="@+id/im_eliminar_autor"
+        android:title="Eliminar" />
+</menu>
