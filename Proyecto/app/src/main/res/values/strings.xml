@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Proyecto</string>
+    <string name="add_repair_title">Añadir Reparación</string>
+    <string name="repair_date_hint">Ingrese la fecha (DD/MM/AAAA)</string>
+    <string name="repair_type_hint">Ejemplo: Cambio de aceite</string>
+    <string name="repair_parts_hint">Lista de repuestos</string>
+    <string name="repair_price_hint">Ingrese el costo total</string>
+    <string name="repair_notes_hint">Detalles adicionales (opcional)</string>
+    <string name="save_button">Guardar Reparación</string>
+</resources>
