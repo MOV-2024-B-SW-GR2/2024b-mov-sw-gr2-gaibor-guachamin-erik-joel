@@ -48,22 +48,22 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Configurar RecyclerView para mostrar los vehículos
+    // Configurar RecyclerView para mostrar los bicicletas
     private fun setupBicicletaRecyclerView() {
-        val bicicletas = dbHelper.obtenerBicicletas() // Recupera los vehículos desde la BD
+        val bicicletas = dbHelper.obtenerBicicletas() // Recupera los bicicletas desde la BD
 
         val bicicletasRecyclerView: RecyclerView = findViewById(R.id.recycler_bicicletas)
         bicicletasRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         bicicletasRecyclerView.adapter = BicicletaAdapter(bicicletas) { selectedBicicleta ->
-            // Verifica si el vehículo tiene un ID válido
+            // Verifica si el bicicleta tiene un ID válido
             if (selectedBicicleta.id != null) {
-                Toast.makeText(this, "Vehículo seleccionado: ${selectedBicicleta.id}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Bicicleta seleccionado: ${selectedBicicleta.id}", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, VerDetalleActivity::class.java)
-                intent.putExtra("bicicleta_id", selectedBicicleta.id) // Pasar el ID del vehículo
-                startActivityForResult(intent, 100) // Código 100 para editar vehículo
+                intent.putExtra("bicicleta_id", selectedBicicleta.id) // Pasar el ID del bicicleta
+                startActivityForResult(intent, 100) // Código 100 para editar bicicleta
             } else {
-                Toast.makeText(this, "ID del vehículo no válido", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "ID de la bicicleta no válido", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -76,23 +76,23 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {
-            if (requestCode == 100) { // Código 100 para la edición de vehículos
-                Log.d("MainActivity", "Resultado OK recibido de EditBicicletaActivity, actualizando lista de vehículos.")
-                refreshBicicletaList() // Actualiza la lista de vehículos
+            if (requestCode == 100) { // Código 100 para la edición de bicicletas
+                Log.d("MainActivity", "Resultado OK recibido de EditBicicletaActivity, actualizando lista de bicicletas.")
+                refreshBicicletaList() // Actualiza la lista de bicicletas
             } else if (requestCode == 1) {
-                Log.d("MainActivity", "Resultado OK recibido de AddBicicletaActivity, actualizando lista de vehículos.")
-                refreshBicicletaList() // Actualiza la lista de vehículos al agregar uno nuevo
+                Log.d("MainActivity", "Resultado OK recibido de AddBicicletaActivity, actualizando lista de bicicletas.")
+                refreshBicicletaList() // Actualiza la lista de bicicletas al agregar uno nuevo
             }
         }
     }
 
-    // Método para actualizar el RecyclerView de vehículos
+    // Método para actualizar el RecyclerView de bicicletas
     private fun refreshBicicletaList() {
-        val updatedBicicletas = dbHelper.obtenerBicicletas() // Recupera los vehículos actualizados
-        Log.d("MainActivity", "Vehículos actualizados: $updatedBicicletas")
+        val updatedBicicletas = dbHelper.obtenerBicicletas() // Recupera los bicicletas actualizados
+        Log.d("MainActivity", "Bicicletas actualizados: $updatedBicicletas")
         val bicicletaRecyclerView: RecyclerView = findViewById(R.id.recycler_bicicletas)
         val adapter = bicicletaRecyclerView.adapter as BicicletaAdapter
         adapter.updateBicicletas(updatedBicicletas) // Método en el adaptador para actualizar la lista
-        Log.d("MainActivity", "Lista de vehículos actualizada en el adaptador.")
+        Log.d("MainActivity", "Lista de bicicletas actualizada en el adaptador.")
     }
 }

@@ -20,7 +20,7 @@ class BicicletaAdapter(
         return BicicletaViewHolder(view)
     }
 
-    // Vincular los datos de cada vehículo con la vista del ViewHolder
+    // Vincular los datos de cada bicicleta con la vista del ViewHolder
     override fun onBindViewHolder(holder: BicicletaViewHolder, position: Int) {
         val bicicleta = bicicletas[position]
         holder.bind(bicicleta)
@@ -30,7 +30,7 @@ class BicicletaAdapter(
     // Devuelve el número total de elementos en la lista
     override fun getItemCount(): Int = bicicletas.size
 
-    // Actualiza la lista de vehículos y notifica a la vista que se debe actualizar
+    // Actualiza la lista de bicicletas y notifica a la vista que se debe actualizar
     fun updateBicicletas(newBicicletas: List<Bicicleta>) {
         bicicletas = newBicicletas
         notifyDataSetChanged()
@@ -42,13 +42,13 @@ class BicicletaAdapter(
         private val biciName: TextView = itemView.findViewById(R.id.bici_name)
         private val biciYear: TextView = itemView.findViewById(R.id.bici_year)
 
-        // Asocia los datos del vehículo con las vistas del ViewHolder
+        // Asocia los datos del bicicleta con las vistas del ViewHolder
         fun bind(bicicleta: Bicicleta) {
-            // Asigna el nombre y año del vehículo a los TextViews
+            // Asigna el nombre y año del bicicleta a los TextViews
             biciName.text = "${bicicleta.marca} ${bicicleta.modelo}"
             biciYear.text = "Año: ${bicicleta.anio}"
 
-            // Cargar la imagen del vehículo
+            // Cargar la imagen del bicicleta
             val file = File(itemView.context.filesDir, bicicleta.imagePath)
             if (file.exists()) {
                 val bitmap = BitmapFactory.decodeFile(file.absolutePath) // Decodifica la imagen

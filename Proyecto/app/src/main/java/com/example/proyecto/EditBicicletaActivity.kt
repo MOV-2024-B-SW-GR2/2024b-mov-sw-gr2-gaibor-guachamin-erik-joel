@@ -31,7 +31,7 @@ class EditBicicletaActivity : AppCompatActivity() {
         spinnerMarcas.adapter = adapter
 
         val editModelo: EditText = findViewById(R.id.editModelo)
-        val editPlaca: EditText = findViewById(R.id.editNumSerie)
+        val editNumSerie: EditText = findViewById(R.id.editNumSerie)
         val editAnio: EditText = findViewById(R.id.editAnio)
         val editFechaCompra: EditText = findViewById(R.id.editFechaCompra)
         val txtBtn: Button = findViewById(R.id.btnAgregarBicicleta)
@@ -43,7 +43,7 @@ class EditBicicletaActivity : AppCompatActivity() {
             bicicleta?.let {
                 spinnerMarcas.setSelection(marcas.indexOf(it.marca))
                 editModelo.setText(it.modelo)
-                editPlaca.setText(it.num_serie)
+                editNumSerie.setText(it.num_serie)
                 editAnio.setText(it.anio.toString())
                 editFechaCompra.setText(it.fechaCompra)
                 txtBtn.setText("Actualizar Bicicleta")
@@ -68,30 +68,30 @@ class EditBicicletaActivity : AppCompatActivity() {
         btnActualizarBicicleta.setOnClickListener {
             val marca = spinnerMarcas.selectedItem.toString()
             val modelo = editModelo.text.toString()
-            val placa = editPlaca.text.toString()
+            val NumSerie = editNumSerie.text.toString()
             val anio = editAnio.text.toString().toIntOrNull() ?: 0
             val fechaCompra = editFechaCompra.text.toString()
 
-            if (marca == "Selecciona una marca" || modelo.isEmpty() || placa.isEmpty() || anio == 0 || fechaCompra.isEmpty()) {
+            if (marca == "Selecciona una marca" || modelo.isEmpty() || NumSerie.isEmpty() || anio == 0 || fechaCompra.isEmpty()) {
                 Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show()
             } else {
                 // Guardar la imagen, si se ha seleccionado una nueva
                 val imagePath = selectedImage?.let { saveImageToStorage(it) } ?: bicicleta?.imagePath ?: ""
 
-                // Crear el vehículo actualizado
+                // Crear el bicicleta actualizado
                 val updatedBicicleta = Bicicleta(
                     id = bicicletaId,
                     marca = marca,
                     modelo = modelo,
                     anio = anio,
-                    num_serie = placa,
+                    num_serie = NumSerie,
                     fechaCompra = fechaCompra,
                     imagePath = imagePath
                 )
 
-                // Actualizar el vehículo en la base de datos
+                // Actualizar el bicicleta en la base de datos
                 dbHelper.actualizarBicicleta(updatedBicicleta)
-                Toast.makeText(this, "Vehículo actualizado correctamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Bicicleta actualizado correctamente", Toast.LENGTH_SHORT).show()
 
                 // Configurar el resultado de la actividad como OK
                 setResult(RESULT_OK)

@@ -33,7 +33,7 @@ class AddBicicletaActivity : AppCompatActivity() {
         val editAnio: EditText = findViewById(R.id.editAnio)
         val editFechaCompra: EditText = findViewById(R.id.editFechaCompra)
 
-        // Referencia al ImageView para la imagen del vehículo
+        // Referencia al ImageView para la imagen del bicicleta
         imgBicicleta = findViewById(R.id.imgBicicleta)
 
         // Botón para seleccionar imagen desde la galería
@@ -42,7 +42,7 @@ class AddBicicletaActivity : AppCompatActivity() {
             startActivityForResult(intent, 100) // Código de solicitud 100
         }
 
-        // Botón para agregar el vehículo
+        // Botón para agregar el bicicleta
         val btnAgregarBicicleta: Button = findViewById(R.id.btnAgregarBicicleta)
         btnAgregarBicicleta.setOnClickListener {
             // Obtiene la marca seleccionada del Spinner
@@ -68,10 +68,10 @@ class AddBicicletaActivity : AppCompatActivity() {
                     fechaCompra = fechaCompra, // Agregar el campo fecha de compra
                     imagePath = imagePath
                 )
-                // Agrega el vehículo a la base de datos
+                // Agrega el bicicleta a la base de datos
                 dbHelper.agregarBicicleta(bicicleta)
-                Toast.makeText(this, "Vehículo agregado correctamente", Toast.LENGTH_SHORT).show()
-                // Finaliza la actividad y retorna RESULT_OK para actualizar la lista de vehículos en la actividad anterior
+                Toast.makeText(this, "Bicicleta agregado correctamente", Toast.LENGTH_SHORT).show()
+                // Finaliza la actividad y retorna RESULT_OK para actualizar la lista de bicicletas en la actividad anterior
                 setResult(RESULT_OK)
                 finish()
             }

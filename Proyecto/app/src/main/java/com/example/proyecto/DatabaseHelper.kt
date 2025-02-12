@@ -55,7 +55,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             onCreate(db)
         }
     }
-    // Método para agregar un vehículo
+    // Método para agregar un bicicleta
     fun agregarBicicleta(bicicleta: Bicicleta): Long {
         val db = this.writableDatabase
         val values = ContentValues().apply {
@@ -69,7 +69,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return db.insert(TABLE_BICICLETAS, null, values)
     }
 
-    // Método para obtener todos los vehículos
+    // Método para obtener todos los bicicletas
     fun obtenerBicicletas(): List<Bicicleta> {
         val bicicletaList = mutableListOf<Bicicleta>()
         val db = this.readableDatabase
@@ -101,7 +101,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return bicicletaList
     }
 
-    // Método para obtener un vehículo por ID
+    // Método para obtener un bicicleta por ID
     fun obtenerBicicletaPorId(id: Int): Bicicleta? {
         val db = this.readableDatabase
         val cursor: Cursor = db.rawQuery("SELECT * FROM $TABLE_BICICLETAS WHERE $COLUMN_ID = ?", arrayOf(id.toString()))
@@ -137,13 +137,13 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         cursor.close()
         return null
     }
-    // Método para eliminar un vehículo por ID
+    // Método para eliminar un bicicleta por ID
     fun eliminarBicicleta(id: Int): Int {
         val db = this.writableDatabase
         return db.delete(TABLE_BICICLETAS, "$COLUMN_ID = ?", arrayOf(id.toString()))
     }
 
-    // Método para actualizar un vehículo existente
+    // Método para actualizar un bicicleta existente
     fun actualizarBicicleta(bicicleta: Bicicleta): Int {
         val db = this.writableDatabase
         val values = ContentValues().apply {
@@ -155,7 +155,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             put(COLUMN_FECHA_COMPRA, bicicleta.fechaCompra)
         }
 
-        // Actualiza el vehículo en la base de datos donde el ID coincide
+        // Actualiza el bicicleta en la base de datos donde el ID coincide
         return db.update(TABLE_BICICLETAS, values, "$COLUMN_ID = ?", arrayOf(bicicleta.id.toString()))
     }
 
